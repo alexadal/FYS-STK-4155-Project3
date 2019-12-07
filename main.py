@@ -1,7 +1,19 @@
+from functions import *
+import sklearn.preprocessing
+
 import pandas as pd
 import os
 import numpy as np
 import warnings
+import matplotlib.pyplot as plt
+from sklearn.svm import SVR
+
+from tensorflow.keras.layers import Input, LSTM, GRU, SimpleRNN, Dense, GlobalMaxPool1D
+from tensorflow.keras.models import Model
+from tensorflow.keras.optimizers import SGD, Adam
+
+
+
 warnings.simplefilter(action='ignore', category=FutureWarning)
 # Reading file into data frame
 cwd = os.getcwd()
@@ -127,5 +139,63 @@ df = df.loc[37:]
 cols = list(df.columns.values)
 cols.pop(cols.index("Next_day"))
 df = df[cols+["Next_day"]]
+df = df.drop(columns = ["Index","Date"])
+data = prepare_data(df,20,20,10)
 
-print(df.columns)
+data.create_windows(50)
+
+
+#Not for LSTM
+x_train = data.x_train.reshape(len(data.x_train),-1)
+x_valid = data.x_valid.reshape(len(data.x_valid),-1)
+x_test = data.x_test.reshape(len(data.x_test),-1)
+
+svr = SVR(C=100,verbose=True)
+
+svr.fit(x_train,data.y_train.ravel())
+
+print(svr.score(x_test,data.y_test.ravel()))
+
+
+i = Input(shape=(50, 8))
+x = LSTM(5)(i)
+x = Dense(1)(x)
+model = Model(i, x)
+model.compile(
+  loss='mse',
+  optimizer=Adam(lr=0.1),
+)
+
+# train the RNN
+r = model.fit(
+  data.x_train, data.y_train.ravel(),
+  epochs=100,
+  validation_data=(data.x_valid,data.y_valid.ravel()),
+)
+
+
+
+
+plt.plot(r.history['loss'], label='loss')
+plt.plot(r.history['val_loss'], label='val_loss')
+plt.legend()
+
+plt.figure()
+outputs = model.predict(data.x_test)
+print(outputs.shape)
+predictions = outputs[:,0]
+
+plt.plot(data.y_test.ravel(), label='targets')
+plt.plot(predictions, label='predictions')
+plt.legend()
+plt.show()
+
+plt.figure()
+outputs = model.predict(data.x_train)
+print(outputs.shape)
+predictions = outputs[:,0]
+
+plt.plot(data.y_train.ravel(), label='targets')
+plt.plot(predictions, label='predictions')
+plt.legend()
+plt.show()

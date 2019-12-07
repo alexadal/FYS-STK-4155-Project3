@@ -15,81 +15,105 @@ with lstm_graph.as_default():
             self.test_percent = test_percent
             self.valid_percent = valid_percent
             self.data = df
-            self.normalize = Normalize
+            self.Normalize = Normalize
 
+        def normalize_windows(self):
+            sc = MinMaxScaler()
+            sc2 = StandardScaler(with_std= False)
+            for i in range(len(self.x_train)):
+                self.x_train[i] = sc.fit_transform(self.x_train[i])
+                self.x_train[i] = sc2.fit_transform(self.x_train[i])
+
+            for i in range(len(self.x_valid)):
+                self.x_valid[i] = sc.transform(self.x_valid[i])
+                self.x_valid[i] = sc2.transform(self.x_valid[i])
+
+            for i in range(len(self.x_test)):
+                self.x_test[i] = sc.transform(self.x_test[i])
+                self.x_test[i] = sc2.transform(self.x_test[i])
+
+
+            self.y_train = sc.fit_transform(self.y_train.reshape(-1, 1))
+            self.y_valid = sc.transform(self.y_valid.reshape(-1, 1))
+            self.y_test = sc.transform(self.y_test.reshape(-1, 1))
+
+            self.mm = [sc.data_min_, sc.data_max_]
 
         #Important to nomralize train and test data for themselves
-        def normalize(self,x_train,x_valid,x_test,y_train,y_valid,y_test):
-            if self.normalize == 'MM':
+        def normalize(self):
+            if self.Normalize == 'MM':
                 sc = MinMaxScaler()
-                x_train = sc.fit_transform(x_train)
-                x_valid = sc.transform(x_valid)
-                x_test = sc.transform(x_test)
+                self.x_train = sc.fit_transform(self.x_train)
+                self.x_valid = sc.transform(self.x_valid)
+                self.x_test = sc.transform(self.x_test)
 
                 sc2 = StandardScaler(with_std=False)
-                x_train = sc2.fit_transform(x_train)
-                x_valid = sc2.transform(x_valid)
-                x_test = sc2.transform(x_test)
+                self.x_train = sc2.fit_transform(self.x_train)
+                self.x_valid = sc2.transform(self.x_valid)
+                self.x_test = sc2.transform(self.x_test)
 
-                self.mm = [np.amin(y_train),np.amax(y_train)]
+                print(self.y_train.shape)
+                self.y_train = sc.fit_transform(self.y_train.reshape(-1,1))
+                self.y_valid = sc.transform(self.y_valid.reshape(-1,1))
+                self.y_test = sc.transform(self.y_test.reshape(-1,1))
 
-                y_train = sc.fit_transform(y_train)
-                y_valid = sc.transform(y_valid)
-                y_test = sc.transform(y_test)
-
-
-
+                self.mm = [sc.data_min_, sc.data_max_]
 
         def create_windows(self,window_length):
 
-            pca = PCA()
+            pca = PCA(n_components=0.95)
 
-            data_matrix = self.data.asmatrix()
+
+            data_matrix = self.data.as_matrix()
             stock_windows_train = []
             stock_windows_valid = []
             stock_windows_test = []
+            print(data_matrix.shape)
+            valid_size = int(np.round(self.valid_percent / 100 * len(data_matrix)))
+            test_size = int(np.round(self.test_percent / 100 * len(data_matrix)))
+            train_size = len(data_matrix) - (test_size + valid_size)
 
-            valid_size = int(np.round(self.valid_percent / 100 * len(data_matrix[0])))
-            test_size = int(np.round(self.test_percent / 100 * len(data_matrix[0])))
-            train_size = len(data_matrix[0]) - (test_size + valid_size)
+            self.x_train = data_matrix[:train_size, :-1]
+            self.y_train = data_matrix[window_length-1:train_size,  -1]
 
-            x_train = data_matrix[:train_size, :-1]
-            y_train = data_matrix[window_length:train_size,  -1]
+            self.x_valid = data_matrix[train_size:train_size + valid_size, :-1]
+            self.y_valid = data_matrix[window_length-1+train_size:train_size + valid_size, -1]
 
-            x_valid = data_matrix[train_size:train_size + valid_size, :-1]
-            y_valid = data_matrix[window_length+train_size:train_size + valid_size, -1]
+            self.x_test = data_matrix[train_size + valid_size:,:-1]
+            self.y_test = data_matrix[window_length-1+train_size + valid_size:, -1]
 
-            x_test = data_matrix[train_size + valid_size:,:-1]
-            y_test = data_matrix[window_length+train_size + valid_size:, -1]
+            x_train_pca = pca.fit_transform(self.x_train[:,7:])
+            x_valid_pca = pca.transform(self.x_valid[:,7:])
+            x_test_pca = pca.transform(self.x_test[:,7:])
 
-            x_train_pca = pca.fit_transform(x_train[:,7:])
-            x_valid_pca = pca.transform(x_valid[:,7:])
-            x_test_pca = pca.transform(x_test[:,7:])
+            self.x_train = np.c_[self.x_train[:,:7],x_train_pca]
+            self.x_valid = np.c_[self.x_valid[:, :7], x_valid_pca]
+            self.x_test = np.c_[self.x_test[:, :7], x_test_pca]
+
+            self.normalize()
 
             #Create all possibl e sequences
-            for index in range(len(x_train_pca)-window_length):
-                stock_windows_train.append(x_train_pca[index:index+window_length])
+            for index in range(len(x_train_pca)-window_length+1):
+                stock_windows_train.append(self.x_train[index:index+window_length])
 
-            x_train = np.array(stock_windows_train) #(X_inputs,window_size,indicators)
-
-
-            for index in range(len(x_valid_pca)-window_length):
-                stock_windows_train.append(x_valid_pca[index:index+window_length])
-
-            x_valid = np.array(stock_windows_valid) #(X_inputs,window_size,indicators)
+            self.x_train = np.array(stock_windows_train) #(X_inputs,window_size,indicators)
 
 
-            for index in range(len(x_test_pca)-window_length):
-                stock_windows_test.append(x_test_pca[index:index+window_length])
+            for index in range(len(x_valid_pca)-window_length+1):
+                stock_windows_valid.append(self.x_valid[index:index+window_length])
 
-            x_test = np.array(stock_windows_test) #(X_inputs,window_size,indicators)
+            self.x_valid = np.array(stock_windows_valid) #(X_inputs,window_size,indicators)
 
+
+            for index in range(len(x_test_pca)-window_length+1):
+                stock_windows_test.append(self.x_test[index:index+window_length])
+
+            self.x_test = np.array(stock_windows_test) #(X_inputs,window_size,indicators)
+
+            #self.normalize_windows()
             #Assume close price adjusted in raw data, thus up to last value
 
 
-
-
-            return [x_train,y_train,x_valid,y_valid,x_test,y_test]
 
 
 
