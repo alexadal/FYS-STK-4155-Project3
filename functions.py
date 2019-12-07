@@ -23,17 +23,19 @@ class prepare_data():
 
     def create_windows(self,window_length):
         data_matrix = self.data.asmatrix()
-        stock_window = []
+        stock_windows = []
 
         #Create all possible sequences
         for index in range(len(data_matrix)-window_length):
-            stock_window.append(data_matrix[index:index+window_length])
+            stock_windows.append(data_matrix[index:index+window_length])
 
-        stock_window = np.array(stock_window) #(X_inputs,window_size,indicators)
-        test_size = int(np.round(self.test_percent/100*stock_window.shape[0]))
-        train_size = stock_window.shape[0] - test_size
+        stock_window = np.array(stock_windows) #(X_inputs,window_size,indicators)
+        test_size = int(np.round(self.test_percent/100*len(stock_windows.[0])))
+        train_size = stock_windows.shape[0] - test_size
 
-
+        #Assume close price adjusted in raw data
+        x_train = stock_windows[:train_size, :, :-1]
+        y_train = stock_windows[:train_size, :, :]
 
 
 

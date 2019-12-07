@@ -14,7 +14,7 @@ pytrend = TrendReq(google_username, google_password)
 #sc = StandardScaler()
 sc = MinMaxScaler()
 
-gtrends = get_daily_data('S&P500',2013,1,2013,8)
+gtrends = get_daily_data('S&P500',2013,1,2019,11)
 gtrends = gtrends.drop(['isPartial'], axis='columns')
 df_scaled = gtrends.copy(deep=True)
 #df_scaled['S&P500'] = sc.fit_transform(df_scaled['S&P500'].values.reshape(-1,1))
