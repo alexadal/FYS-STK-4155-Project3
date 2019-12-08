@@ -4,13 +4,41 @@ from pandas import datetime
 from matplotlib import pyplot
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 from sklearn.decomposition import PCA
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
-tf.reset_default_graph()
-lstm_graph = tf.Graph()
-with lstm_graph.as_default():
+
+# **** change the warning level ****
 
 
-    class prepare_data():
+def tensorflow_shutup():
+    """
+    Make Tensorflow less verbose
+    """
+    try:
+        # noinspection PyPackageRequirements
+        import os
+        from tensorflow import logging
+        logging.set_verbosity(logging.ERROR)
+        os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
+        # Monkey patching deprecation utils to shut it up! Maybe good idea to disable this once after upgrade
+        # noinspection PyUnusedLocal
+        def deprecated(date, instructions, warn_once=True):
+            def deprecated_wrapper(func):
+                return func
+            return deprecated_wrapper
+
+        from tensorflow.python.util import deprecation
+        deprecation.deprecated = deprecated
+
+    except ImportError:
+        pass
+
+
+
+
+class prepare_data():
         def __init__(self,df,window_lenght,test_percent=20, valid_percent=10, Normalize = 'MM'):
             self.test_percent = test_percent
             self.valid_percent = valid_percent
@@ -82,6 +110,8 @@ with lstm_graph.as_default():
             self.x_test = data_matrix[train_size + valid_size:,:-1]
             self.y_test = data_matrix[window_length-1+train_size + valid_size:, -1]
 
+            self.normalize()
+
             x_train_pca = pca.fit_transform(self.x_train[:,7:])
             x_valid_pca = pca.transform(self.x_valid[:,7:])
             x_test_pca = pca.transform(self.x_test[:,7:])
@@ -90,7 +120,7 @@ with lstm_graph.as_default():
             self.x_valid = np.c_[self.x_valid[:, :7], x_valid_pca]
             self.x_test = np.c_[self.x_test[:, :7], x_test_pca]
 
-            self.normalize()
+
 
             #Create all possibl e sequences
             for index in range(len(x_train_pca)-window_length+1):
