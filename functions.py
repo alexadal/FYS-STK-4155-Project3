@@ -91,7 +91,6 @@ class prepare_data():
 
             pca = PCA(n_components=0.95)
 
-
             data_matrix = self.data.as_matrix()
             stock_windows_train = []
             stock_windows_valid = []
@@ -121,7 +120,6 @@ class prepare_data():
             self.x_test = np.c_[self.x_test[:, :7], x_test_pca]
 
 
-
             #Create all possibl e sequences
             for index in range(len(x_train_pca)-window_length+1):
                 stock_windows_train.append(self.x_train[index:index+window_length])
@@ -142,33 +140,6 @@ class prepare_data():
 
             #self.normalize_windows()
             #Assume close price adjusted in raw data, thus up to last value
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
