@@ -8,6 +8,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.svm import SVR
+from sklearn.model_selection import learning_curve
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from tensorflow.keras.layers import Input, LSTM, GRU, SimpleRNN, Dense, GlobalMaxPool1D
@@ -17,6 +18,8 @@ from numpy.random import seed
 seed(1)
 from tensorflow import set_random_seed
 set_random_seed(2)
+
+"""------------------------- Data processing -----------------------------"""
 
 
 #Create dataset
@@ -28,16 +31,42 @@ data = prepare_data(df,20,20,10)
 #Sliding windows of 20 days
 data.create_windows(20)
 
+"""------------------------- Functions to be runned -----------------------------"""
+
 def run_SVR(data):
     x_train = data.x_train.reshape(len(data.x_train),-1)
     x_valid = data.x_valid.reshape(len(data.x_valid),-1)
     x_test = data.x_test.reshape(len(data.x_test),-1)
 
-    svr = SVR(C=10,verbose=True)
+    svr = SVR(kernel='poly',C=10,verbose=True)
 
     svr.fit(x_train,data.y_train.ravel())
 
+    predictions = svr.predict(x_test)
+
     print(svr.score(x_test,data.y_test.ravel()))
+
+    plt.figure()
+    plt.plot(data.y_test.ravel(), label='targets')
+    plt.plot(predictions, label='predictions')
+    plt.legend()
+    plt.title('SVR test data')
+    plt.show()
+
+    predictions = svr.predict(x_train)
+
+    plt.plot(data.y_train.ravel(), label='targets')
+    plt.plot(predictions, label='predictions')
+    plt.legend()
+    plt.title('SVR train data')
+    plt.show()
+
+
+    #Create plots
+    plt.figure()
+    plt.plot(svr.loss_curve_, label='val_loss')
+    plt.title('SVR loss')
+    plt.legend()
 
 
 def run_LSTM(data):
@@ -53,7 +82,7 @@ def run_LSTM(data):
     # train the RNN
     r = model.fit(
       data.x_train, data.y_train.ravel(),
-      epochs=20,
+      epochs=80,
       validation_data=(data.x_valid,data.y_valid.ravel()),
     )
     #Create plots
@@ -100,22 +129,22 @@ def run_ANN(data):
     r = model.fit(x_train, data.y_train.ravel(), epochs=100, validation_data=(x_valid,data.y_valid.ravel()))
 
     #Create plots
+    plt.figure()
     plt.plot(r.history['loss'], label='loss')
     plt.plot(r.history['val_loss'], label='val_loss')
     plt.title('ANN loss')
-
     plt.legend()
 
-    plt.figure()
+
     outputs = model.predict(x_test)
     print(outputs.shape)
     predictions = outputs[:,0]
 
+    plt.figure()
     plt.plot(data.y_test.ravel(), label='targets')
     plt.plot(predictions, label='predictions')
     plt.legend()
     plt.title('ANN test data')
-
     plt.show()
 
     plt.figure()

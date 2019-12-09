@@ -39,7 +39,7 @@ def tensorflow_shutup():
 
 
 class prepare_data():
-        def __init__(self,df,window_lenght,test_percent=20, valid_percent=10, Normalize = 'MM'):
+        def __init__(self,df,window_lenght,test_percent=20, valid_percent=10, Normalize = 'Returns'):
             self.test_percent = test_percent
             self.valid_percent = valid_percent
             self.data = df
@@ -69,23 +69,30 @@ class prepare_data():
 
         #Important to nomralize train and test data for themselves
         def normalize(self):
-            if self.Normalize == 'MM':
-                sc = MinMaxScaler()
-                self.x_train = sc.fit_transform(self.x_train)
-                self.x_valid = sc.transform(self.x_valid)
-                self.x_test = sc.transform(self.x_test)
 
-                sc2 = StandardScaler(with_std=False)
-                self.x_train = sc2.fit_transform(self.x_train)
-                self.x_valid = sc2.transform(self.x_valid)
-                self.x_test = sc2.transform(self.x_test)
+            sc = MinMaxScaler()
+            self.x_train = sc.fit_transform(self.x_train)
+            self.x_valid = sc.transform(self.x_valid)
+            self.x_test = sc.transform(self.x_test)
 
-                print(self.y_train.shape)
+            sc2 = StandardScaler(with_std=False)
+            self.x_train = sc2.fit_transform(self.x_train)
+            self.x_valid = sc2.transform(self.x_valid)
+            self.x_test = sc2.transform(self.x_test)
+
+            print(self.y_train.shape)
+
+            if self.Normalize == 'Returns':
+                self.y_train =self.y_train.reshape(-1,1)
+                self.y_valid = self.y_valid.reshape(-1,1)
+                self.y_test = self.y_test.reshape(-1,1)
+            else:
                 self.y_train = sc.fit_transform(self.y_train.reshape(-1,1))
                 self.y_valid = sc.transform(self.y_valid.reshape(-1,1))
                 self.y_test = sc.transform(self.y_test.reshape(-1,1))
 
-                self.mm = [sc.data_min_, sc.data_max_]
+            # self.mm = [sc.data_min_, sc.data_max_]
+
 
         def create_windows(self,window_length):
 
@@ -139,7 +146,7 @@ class prepare_data():
             self.x_test = np.array(stock_windows_test) #(X_inputs,window_size,indicators)
 
             #self.normalize_windows()
-            #Assume close price adjusted in raw data, thus up to last value
+            #Close price adjusted in raw data, thus up to last value
 
 
 

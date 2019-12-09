@@ -136,7 +136,7 @@ def create_finance(returns=False,plot_corr=False):
     df = df.drop(columns=["Index", "Date"])
 
     if returns:
-        df['Return'] = (df['Close'] - df['Next_day']) / df['Close']
+        df['Return'] = (df['Next_day'] - df['Close']) / df['Close']
         df = df.drop(columns=["Next_day"])
 
     if plot_corr:
