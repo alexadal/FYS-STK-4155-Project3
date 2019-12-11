@@ -29,7 +29,7 @@ def lowest(data,end,t):
         t = end
     return min(data[(end-t):end])
 
-def create_finance(returns=False,plot_corr=False):
+def create_finance(returns=False,plot_corr=False,Trends=True):
 
     # Reading file into data frame
     cwd = os.getcwd()
@@ -143,8 +143,12 @@ def create_finance(returns=False,plot_corr=False):
         corr = df.corr()
         plt.figure()
         sns.heatmap(corr, cmap='coolwarm', center=0,
-                    square=True, linewidths=.5, cbar_kws={"shrink": .5})
+                    square=True, linewidths=.5, annot=True, annot_kws={"fontsize": 4},cbar_kws={"shrink": .5})
         plt.show()
+
+    if Trends == False:
+        df = df.drop(columns=["Trend"])
+
 
 
     print(df.columns)
