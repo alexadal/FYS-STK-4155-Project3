@@ -19,6 +19,7 @@ from sklearn.metrics import mean_squared_error
 from math import sqrt
 from sklearn.model_selection import TimeSeriesSplit
 from sklearn.model_selection import cross_val_score
+from keras.wrappers.scikit_learn import KerasRegressor
 
 
 seed(1)
@@ -32,7 +33,7 @@ Returns = False
 df = create_finance(returns=Returns,plot_corr=False,Trends=False)
 
 #Create sliding windows
-data = prepare_data(df,23,20,10,returns='True',normalize_cheat=True)
+data = prepare_data(df,45,20,10,returns=False,normalize_cheat=False)
 
 #Sliding windows of 20 days
 data.create_windows()
@@ -84,13 +85,13 @@ def run_LSTM(data):
     model = Model(inputs=i, outputs=x)
     model.compile(
       loss='mse',
-      optimizer=Adam(lr=0.005),
+      optimizer=Adam(lr=0.005,decay=0.2),
     )
     # train the RNN
     regressor = model.fit(
       data.x_train, data.y_train.ravel(),
-      epochs=50,
-      validation_data=(data.x_valid,data.y_valid.ravel()))
+      epochs=50,batch_size=50, verbose=True, shuffle=True
+      ,validation_data=(data.x_valid,data.y_valid.ravel()))
 
     """
     # Initialising the RNN
@@ -173,7 +174,7 @@ def run_ANN(data):
     x_test = data.x_test.reshape(len(data.x_test),-1)
     # Build the model
     model = tf.keras.models.Sequential([
-        tf.keras.layers.Dense(50, input_shape=(280,), activation='relu'),
+        tf.keras.layers.Dense(50, input_shape=(len(x_train[1]),), activation='relu'),
         tf.keras.layers.Dense(1)])
 
     # Compile and fit

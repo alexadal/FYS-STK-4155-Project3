@@ -1,5 +1,7 @@
 from pandas import read_csv
 import numpy as np
+from create_raw_data import *
+from sklearn.metrics import make_scorer
 import pandas as pd
 from pandas import datetime
 from matplotlib import pyplot
@@ -8,9 +10,13 @@ from sklearn.decomposition import PCA
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
-
-# **** change the warning level ****
-
+from tensorflow.keras.layers import Input, LSTM, GRU, SimpleRNN, Dense, GlobalMaxPool1D, Dropout, Activation
+from tensorflow.keras.models import Model, Sequential
+from tensorflow.keras.optimizers import SGD, Adam, Nadam
+from numpy.random import seed
+from sklearn.metrics import mean_squared_error
+from keras.wrappers.scikit_learn import KerasRegressor
+from sklearn.model_selection import GridSearchCV
 
 
 def mean_absolute_percentage_error(y_true, y_pred):
@@ -195,9 +201,50 @@ class prepare_data():
 
 
 
+def create_ANN(data, lr_=0.001, dropout_rate = 0.2):
+    model = Sequential()
+    # Adding the first LSTM layer and some Dropout regularisation
+    model.add(LSTM(units=128, return_sequences=True, input_shape=(data.x_train.shape[1], data.x_train.shape[2])))
+    model.add(Dropout(dropout_rate))
+    model.add(LSTM(units=50))
+    model.add(Dropout(dropout_rate))
+    model.add(Dense(units=1))
+    opt = Adam(lr=lr_)
+    model.compile(optimizer=opt, loss='mean_squared_error',metrics=['mean_squared_error'])
+    return model
+
+
+
+def run_Grid(data):
+
+    model= KerasRegressor(build_fn=create_ANN(data),verbose=0)
+    params = {'lr_': [0.001, 0.01, 0.1, 0.2, 0.3],
+              'epochs': [100, 150, 200],
+              'batch_size': [100, 150],
+              'dropout_rate': [0.3],
+            'validation_data': [(data.x_valid, data.y_valid.ravel())]}
+
+
+    regressor = GridSearchCV(estimator = model, param_grid = params, n_jobs = 1, refit=True, scoring='neg_mean_squared_error')
+    regressor.fit(data.x_train, data.y_train.ravel())
+    """
+    preds = regressor.predict(data.x_test)
+    print("Best: %f using %s" % (regressor.best_score_, regressor.best_params_))
+    """
+
 
 
 
 
 if __name__ == "__main__":
     print('Running stock predictor test')
+
+    df = create_finance(returns=False, plot_corr=False, Trends=True)
+
+    # Create sliding windows
+    data = prepare_data(df, 30, 20, 10, returns=False, normalize_cheat=False)
+
+    # Sliding windows of 20 days
+    data.create_windows()
+
+    run_Grid(data)
