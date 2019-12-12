@@ -11,15 +11,18 @@ from functions import *
 from create_raw_data import *
 from talos.utils import lr_normalizer
 from tensorflow.keras.optimizers import SGD, Adam, Nadam
+seed(1)
+from tensorflow import set_random_seed
+set_random_seed(2)
 
 
 # set the parameter space
-p = {'lr': (0.1, 10, 10),
+p = {'lr': (1e-5, 0.1, 10),
      'first_neuron':[50, 128],
      'second_neuron':[50, 128],
-     'batch_size': [100, 300],
-     'epochs': [30, 50],
-     'dropout': [0, 0.2],
+     'batch_size': [50, 100],
+     'epochs': [20, 30, 50],
+     'dropout': [0, 0.2, 0.7],
      'optimizer': [Adam, Nadam],
      'losses': ['mse']}
 
@@ -27,9 +30,9 @@ p = {'lr': (0.1, 10, 10),
 def create_model(trainX, trainY, testX, testY, params):
 
     model = Sequential()
-    model.add(LSTM(units=128, return_sequences=True, input_shape=(data.x_train.shape[1], data.x_train.shape[2])))
+    model.add(LSTM(units=params['first_neuron'], return_sequences=True, input_shape=(data.x_train.shape[1], data.x_train.shape[2])))
     model.add(Dropout(params['dropout']))
-    model.add(LSTM(units=50))
+    model.add(LSTM(units=params['second_neuron']))
     model.add(Dropout(params['dropout']))
     model.add(Dense(units=1))
 
@@ -68,5 +71,5 @@ if __name__ == "__main__":
     y_test = data.y_test.reshape(-1,1)
 
 
-    scan_object = ta.Scan(x=x_train,y=y_train,x_val=x_valid,y_val=y_valid, model=create_model, params=p,experiment_name='LSTM Stock',fraction_limit=.1)
+    scan_object = ta.Scan(x=x_train,y=y_train,x_val=x_valid,y_val=y_valid, model=create_model, params=p,experiment_name='LSTM Stock',fraction_limit=0.01)
 
