@@ -29,7 +29,7 @@ def PCT(y_true,y_pred):
     y_true, y_pred = np.array(y_true), np.array(y_pred)
     y_true = y_true.ravel()
     y_pred = y_pred.ravel()
-    phi = np.zeros((y_true.ravel().shape))
+    phi = np.zeros((y_true.ravel().shape-1))
     for i in range(len(y_true)-1):
         if(((y_pred[i+1]-y_true[i])*(y_true[i+1]-y_true[i]))>0):
             phi[i] = 1
@@ -55,9 +55,9 @@ class prepare_data():
             self.window_length = window_length
             self.cheat = normalize_cheat
             if Trends:
-                self.trends = 7
-            else:
                 self.trends = 6
+            else:
+                self.trends = 5
 
         def normalize_windows(self):
             sc = MinMaxScaler()
@@ -89,10 +89,13 @@ class prepare_data():
             self.x_valid = sc.transform(self.x_valid)
             self.x_test = sc.transform(self.x_test)
 
+
+
             sc2 = StandardScaler(with_std=False)
             self.x_train = sc2.fit_transform(self.x_train)
             self.x_valid = sc2.transform(self.x_valid)
             self.x_test = sc2.transform(self.x_test)
+
 
             print(self.y_train.shape)
 
@@ -106,6 +109,8 @@ class prepare_data():
                 self.y_test = sc.transform(self.y_test.reshape(-1,1))
                 self.mm = [sc.data_min_, sc.data_max_]
 
+
+
         def normalize_all(self):
             sc = MinMaxScaler()
             sc2 = StandardScaler(with_std=False)
@@ -115,9 +120,6 @@ class prepare_data():
             self.mm = [sc.data_min_[-1], sc.data_max_[-1]]
             #self.mm = [sc.data_min_, sc.data_max_]
             #self.data = sc2.fit_transform(self.data)
-
-
-
 
 
 
@@ -201,14 +203,15 @@ class prepare_data():
             test_size = int(np.round(self.test_percent / 100 * len(data_matrix)))
             train_size = len(data_matrix) - (test_size + valid_size)
 
-            #Scale train first
-            sc = StandardScaler()
+            #Scale train first and create windows
 
             self.x_train = data_matrix[:train_size, :-1]
             self.y_train = data_matrix[window_length - 1:train_size, -1]
 
+            sc = StandardScaler()
             self.x_train = sc.fit_transform(self.x_train)
             self.y_train = sc.fit_transform(self.y_train.reshape(-1,1))
+            self.train_sc = sc
 
             x_train_pca = pca.fit_transform(self.x_train[:, self.trends:])
             self.x_train = np.c_[self.x_train[:, :self.trends], x_train_pca]
@@ -218,7 +221,7 @@ class prepare_data():
 
             self.x_train = np.array(stock_windows_train)
 
-            #Now scale test values, but not with regular scaler
+            #Now scale test values, but now scale each window instead
             self.x_valid = data_matrix[train_size:train_size + valid_size, :-1]
             self.y_valid = data_matrix[window_length - 1 + train_size:train_size + valid_size, -1]
 
@@ -245,6 +248,7 @@ class prepare_data():
 
             sc = StandardScaler()
             self.y_valid = sc.fit_transform(self.y_valid.reshape(-1,1))
+            self.valid_sc = sc
             #self.mu_val_list = mu_val_list
             #self.std_val_list = std_val_list
 
@@ -266,7 +270,11 @@ class prepare_data():
 
                 x_test_scaled.append(x_test)
 
-            self.x_test = np.array(x_valid_scaled)
+            self.x_test = np.array(x_test_scaled)
+            sc = StandardScaler()
+            self.y_test = sc.fit_transform(self.y_test.reshape(-1,1))
+            self.test_sc = sc
+
             #self.mu_test_list = mu_test_list
             #self.std_test_list = std_test_list
 

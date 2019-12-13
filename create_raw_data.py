@@ -133,7 +133,8 @@ def create_finance(returns=False,plot_corr=False,Trends=True):
     cols = list(df.columns.values)
     cols.pop(cols.index("Next_day"))
     df = df[cols + ["Next_day"]]
-    df = df.drop(columns=["Index", "Date"])
+    df = df.drop(columns=["Index", "Date","AdjClose"])
+
 
     if returns:
         df['Return'] = (df['Next_day'] - df['Close']) / df['Close']
