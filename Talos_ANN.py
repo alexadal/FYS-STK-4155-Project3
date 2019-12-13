@@ -1,16 +1,20 @@
 """
 Optimizer for tensoflow.Keras --> used for grid search
 """
+import keras
 import tensorflow as tf
-from tensorflow.keras.layers import Input, LSTM, GRU, SimpleRNN, Dense, GlobalMaxPool1D, Dropout, Activation
-from tensorflow.keras.models import Model, Sequential
-from keras.activations import relu, tanh
+#from keras.layers import Input, LSTM, GRU, SimpleRNN, Dense, GlobalMaxPool1D, Dropout, Activation
+#from keras.models import Model, Sequential
+#from keras.activations import relu, tanh
 import talos as ta
 #from talos.utils import live
 from functions import *
 from create_raw_data import *
 from talos.utils import lr_normalizer
-from tensorflow.keras.optimizers import SGD, Adam, Nadam
+#from keras.optimizers import SGD, Adam, Nadam
+from keras.utils import CustomObjectScope
+from keras.initializers import glorot_uniform
+
 
 
 # set the parameter space
@@ -20,7 +24,7 @@ p = {'lr': (1e-5, 1, 10),
      'batch_size': [50, 100, 300],
      'epochs': [10, 30, 50],
      'dropout': [0, 0.2],
-     'optimizer': [Adam, Nadam],
+     'optimizer': [Adam],
      'losses': ['mse']}
 
 # first we have to make sure to input data and params into the function
@@ -30,7 +34,7 @@ def create_model(trainX, trainY, testX, testY, params):
         Dense(1)])
 
     model.compile(optimizer=params['optimizer'](lr=lr_normalizer(params['lr'], params['optimizer'])),
-                  loss=['mean_squared_error'], metrics=['mean_absolute_percentage_error'])
+                  loss=['mean_squared_error'], metrics=['mean_squared_error'])
 
     model_out = model.fit(trainX, trainY,
                         validation_data=[testX, testY],
@@ -65,5 +69,19 @@ if __name__ == "__main__":
     y_test = data.y_test.reshape(-1,1)
 
 
-    scan_object = ta.Scan(x=x_train,y=y_train,x_val=x_valid,y_val=y_valid, model=create_model, params=p,experiment_name='ANN Stock',fraction_limit=0.1)
+    scan_object = ta.Scan(x=x_train,y=y_train,x_val=x_valid,y_val=y_valid, model=create_model, params=p,experiment_name='ANN Stock',fraction_limit=0.01)
+
+
+    with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
+        ta.Deploy(scan_object=scan_object, model_name='TalosANN22', metric='val_mean_squared_error');
+
+    test = ta.Restore('TalosANN.zip')
+
+    p = ta.Predict(test)
+
+    # returns model_id for best performing model
+    r.best_model(metric='val_measure')
+
+    # returns predictions for input x
+    r.predict(y_test)
 
