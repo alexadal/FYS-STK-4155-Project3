@@ -119,6 +119,9 @@ class prepare_data():
 
 
 
+
+
+
         def create_windows(self):
 
             pca = PCA(n_components=0.95)
@@ -180,24 +183,92 @@ class prepare_data():
             #self.normalize_windows()
             #Close price adjusted in raw data, thus up to last value
 
-            class BlockingTimeSeriesSplit():
-                def __init__(self, n_splits):
-                    self.n_splits = n_splits
 
-                def get_n_splits(self, X, y, groups):
-                    return self.n_splits
 
-                def split(self, X, y=None, groups=None):
-                    n_samples = len(X)
-                    k_fold_size = n_samples // self.n_splits
-                    indices = np.arange(n_samples)
+        def normalized_windows(self):
 
-                    margin = 0
-                    for i in range(self.n_splits):
-                        start = i * k_fold_size
-                        stop = start + k_fold_size
-                        mid = int(0.8 * (stop - start)) + start
-                        yield indices[start: mid], indices[mid + margin: stop]
+            pca = PCA(n_components=0.95)
+            window_length = self.window_length
+            data_matrix = np.empty(1)
+
+            data_matrix = self.data.as_matrix()
+            stock_windows_train = []
+            stock_windows_valid = []
+            stock_windows_test = []
+
+            print(data_matrix.shape)
+            valid_size = int(np.round(self.valid_percent / 100 * len(data_matrix)))
+            test_size = int(np.round(self.test_percent / 100 * len(data_matrix)))
+            train_size = len(data_matrix) - (test_size + valid_size)
+
+            #Scale train first
+            sc = StandardScaler()
+
+            self.x_train = data_matrix[:train_size, :-1]
+            self.y_train = data_matrix[window_length - 1:train_size, -1]
+
+            self.x_train = sc.fit_transform(self.x_train)
+            self.y_train = sc.fit_transform(self.y_train.reshape(-1,1))
+
+            x_train_pca = pca.fit_transform(self.x_train[:, self.trends:])
+            self.x_train = np.c_[self.x_train[:, :self.trends], x_train_pca]
+
+            for index in range(len(x_train_pca)-window_length+1):
+                stock_windows_train.append(self.x_train[index:index+window_length])
+
+            self.x_train = np.array(stock_windows_train)
+
+            #Now scale test values, but not with regular scaler
+            self.x_valid = data_matrix[train_size:train_size + valid_size, :-1]
+            self.y_valid = data_matrix[window_length - 1 + train_size:train_size + valid_size, -1]
+
+            x_valid_scaled, mu_val_list, std_val_list = [], [], []
+            #x_val = self.x_valid
+            for index in range(len(self.x_valid) - window_length + 1):
+                #mu_val_list.append(np.mean(x_val[index:index + window_length],axis=1))
+                #std_val_list.append(np.std(x_val[index:index+ window_length],axis=1))
+                sc = StandardScaler()
+                x_val = sc.fit_transform(self.x_valid[index:index + window_length])
+
+                x_val_pca = pca.transform(x_val[:, self.trends:])
+                x_val = np.c_[x_val[:, :self.trends], x_val_pca]
+
+                #x_val_pca = pca.fit_transform(x_val[index:index + window_length, self.trends:])
+
+                #x_val = np.c_[x_val[index:index + window_length, :self.trends], x_val_pca]
+
+                x_valid_scaled.append(x_val)
+
+            x_valid_scaled = np.array(x_valid_scaled)
+
+            self.x_valid = x_valid_scaled
+
+            sc = StandardScaler()
+            self.y_valid = sc.fit_transform(self.y_valid.reshape(-1,1))
+            #self.mu_val_list = mu_val_list
+            #self.std_val_list = std_val_list
+
+            self.x_test = data_matrix[train_size + valid_size:, :-1]
+            self.y_test = data_matrix[window_length - 1 + train_size + valid_size:, -1]
+
+            x_test_scaled, mu_test_list, std_test_list = [], [], []
+            #x_test = self.x_test
+            for index in range(len(self.x_test) - window_length + 1):
+                #mu_test_list.append(np.mean(x_val[index:index + window_length]))
+                #std_test_list.append(np.std(data[index:+ window_length]))
+                sc = StandardScaler()
+                x_test = sc.fit_transform(self.x_test[index:index + window_length])
+
+                #x_test = (x_test[index:index + window_length] - mu_test_list[index]) / std_test_list[index]
+
+                x_test_pca = pca.transform(x_test[:, self.trends:])
+                x_test = np.c_[x_test[:, :self.trends], x_test_pca]
+
+                x_test_scaled.append(x_test)
+
+            self.x_test = np.array(x_valid_scaled)
+            #self.mu_test_list = mu_test_list
+            #self.std_test_list = std_test_list
 
 
 
@@ -245,6 +316,8 @@ if __name__ == "__main__":
     data = prepare_data(df, 30, 20, 10, returns=False, normalize_cheat=False)
 
     # Sliding windows of 20 days
-    data.create_windows()
+    data.normalized_windows()
 
-    run_Grid(data)
+    print(data.x_test.shape)
+
+

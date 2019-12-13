@@ -17,26 +17,28 @@ set_random_seed(2)
 
 
 # set the parameter space
-p = {'lr': (1e-5, 0.1, 10),
-     'first_neuron':[50, 128],
-     'second_neuron':[50, 128],
-     'batch_size': [50, 100],
-     'epochs': [20, 30, 50],
-     'dropout': [0, 0.2, 0.7],
-     'optimizer': [Adam, Nadam],
+p = {'lr': (1e-3, 1e-2, 15),
+     'first_neuron':[10],
+     'batch_size': [10,20,50,100],
+     'epochs': [20, 30, 50, 90],
+     'dropout': [0, 0.2, 0.4],
+     'optimizer': [Adam],
      'losses': ['mse']}
 
 # first we have to make sure to input data and params into the function
 def create_model(trainX, trainY, testX, testY, params):
 
     model = Sequential()
-    model.add(LSTM(units=params['first_neuron'], return_sequences=True, input_shape=(data.x_train.shape[1], data.x_train.shape[2])))
+    model.add(LSTM(units=params['first_neuron'], return_sequences=False, input_shape=(data.x_train.shape[1], data.x_train.shape[2]),activation='tanh',recurrent_activation='hard_sigmoid',kernel_initializer=tf.keras.initializers.glorot_uniform(seed=None)))
     model.add(Dropout(params['dropout']))
-    model.add(LSTM(units=params['second_neuron']))
+    """
+    model.add(LSTM(units=params['first_neuron']))
     model.add(Dropout(params['dropout']))
-    model.add(Dense(units=1))
+    model.add(Dense(units=params['second_neuron']))
+    """
+    model.add(Dense(units=1,activation="relu"))
 
-    model.compile(optimizer=params['optimizer'](lr=lr_normalizer(params['lr'], params['optimizer'])),loss=['mean_squared_error'], metrics=['mean_squared_error'])
+    model.compile(optimizer=params['optimizer'](lr=params['lr']),loss=['mean_squared_error'], metrics=['mean_absolute_percentage_error'])
 
     model_out = model.fit(trainX, trainY,
                         validation_data=[testX, testY],
@@ -56,7 +58,7 @@ if __name__ == "__main__":
     df = create_finance(returns=False, plot_corr=False, Trends=True)
 
     # Create sliding windows
-    data = prepare_data(df, 30, 20, 10, returns=False, normalize_cheat=False)
+    data = prepare_data(df, 50, 20, 10, returns=False, normalize_cheat=False)
 
     # Sliding windows of 20 days
     data.create_windows()
@@ -71,5 +73,5 @@ if __name__ == "__main__":
     y_test = data.y_test.reshape(-1,1)
 
 
-    scan_object = ta.Scan(x=x_train,y=y_train,x_val=x_valid,y_val=y_valid, model=create_model, params=p,experiment_name='LSTM Stock',fraction_limit=0.01)
+    scan_object = ta.Scan(x=x_train,y=y_train,x_val=x_valid,y_val=y_valid, model=create_model, params=p,experiment_name='LSTM_Stock_50_Window_size',fraction_limit=0.1)
 
