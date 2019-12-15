@@ -1,22 +1,27 @@
 """
 Optimizer for tensoflow.Keras --> used for grid search
 """
-
-from tensorflow.keras.layers import Input, LSTM, GRU, SimpleRNN, Dense, GlobalMaxPool1D, Dropout, Activation
-from tensorflow.keras.models import Model, Sequential
-from keras.activations import relu, tanh
+import keras
+import tensorflow as tf
+#from keras.layers import Input, LSTM, GRU, SimpleRNN, Dense, GlobalMaxPool1D, Dropout, Activation
+#from keras.models import Model, Sequential
+#from keras.activations import relu, tanh
+from sklearn.metrics import mean_squared_error
+from math import sqrt
 import talos as ta
 from talos.utils import live
 from functions import *
 from create_raw_data import *
 from talos.utils import lr_normalizer
-from tensorflow.keras.optimizers import SGD, Adam, Nadam
-from talos.utils.best_model import activate_model
+#from keras.optimizers import SGD, Adam, Nadam
+from keras.utils import CustomObjectScope
+from keras.initializers import glorot_uniform
+
 seed(1)
-from tensorflow import set_random_seed
-set_random_seed(2)
+#random.set_seed(2)
 
 
+#128,256
 # set the parameter space
 p = {'lr': (1e-3, 1e-1, 15),
      'first_neuron':[10,50,128,256],
@@ -31,7 +36,7 @@ p = {'lr': (1e-3, 1e-1, 15),
 def create_model(trainX, trainY, testX, testY, params):
 
     model = Sequential()
-    model.add(LSTM(units=params['first_neuron'], return_sequences=True, input_shape=(trainX.shape[1], trainX.shape[2]),activation='tanh',recurrent_activation='hard_sigmoid',kernel_initializer=tf.keras.initializers.glorot_uniform(seed=None)))
+    model.add(LSTM(units=params['first_neuron'], return_sequences=True, input_shape=(trainX.shape[1], trainX.shape[2])))
     model.add(Dropout(params['dropout']))
     model.add(LSTM(units=params['first_neuron']))
     model.add(Dropout(params['dropout']))
@@ -65,12 +70,13 @@ def get_best_Talos(windows):
         x_valid = data.x_valid
         y_valid = data.y_valid.reshape(-1, 1)
 
-        file = 'LSTM stock window_' + str(i)
+        file = 'LSTM_window' + str(i)
         print("Running Talos on window size: {}".format(i))
 
-        t = ta.Scan(x=x_train,y=y_train,x_val=x_valid,y_val=y_valid, model=create_model, params=p,experiment_name=file,fraction_limit=0.1,seed=2)
+        t = ta.Scan(x=x_train,y=y_train,x_val=x_valid,y_val=y_valid, model=create_model, params=p,experiment_name=file,fraction_limit=0.01)
         dpl = file+'_deploy'
-        ta.Deploy(scan_object=t, model_name=dpl, metric='mean_squared_error')
+        with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
+            ta.Deploy(scan_object=t, model_name=dpl, metric='val_mean_squared_error',asc=True);
 
 
 
@@ -83,11 +89,10 @@ if __name__ == "__main__":
     df = create_finance(returns=False, plot_corr=False, Trends=True)
 
     # Create sliding windows
-    data = prepare_data(df, 50, 20, 10, returns=False, normalize_cheat=False)
+    data = prepare_data(df, 3, 10, 10, returns=False, normalize_cheat=False)
 
     # Sliding windows of 20 days
-    """
-   data.create_windows()
+    data.create_windows()
 
     x_train = data.x_train
     y_train = data.y_train.reshape(-1,1)
@@ -98,7 +103,34 @@ if __name__ == "__main__":
     x_test = data.x_test
     y_test = data.y_test.reshape(-1,1)
     
-    """
+
     windows = [3,5,7,10,15,20]
     get_best_Talos(windows)
+
+    """
+    with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
+
+        LSTM = ta.Restore('LSTM_stock_model_window3_deploy.zip');
+
+    y_pred = LSTM.model.predict(x_test)
+
+    print(y_pred)
+
+    y_true, y_pred = np.array(data.y_test).reshape(-1, 1), np.array(y_pred).reshape(-1, 1)
+
+    plt.figure()
+    plt.plot(data.y_test.ravel(), label='targets')
+    plt.plot(y_pred, label='predictions')
+    plt.legend()
+    plt.title('LSTM test data')
+    plt.show()
+
+    mape = mean_absolute_percentage_error(y_true, y_pred)
+    pct = PCT(y_true, y_pred)
+    mse = mean_squared_error(y_true, y_pred)
+    rmse = sqrt(mse)
+
+    print('MAPE = {:.2f}, PCT = {:.2f}, MSE = {:.6f} and RMSE = {:.5f}'.format(mape, pct,mse,rmse))
+
+    """
 

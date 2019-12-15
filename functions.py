@@ -29,7 +29,7 @@ def PCT(y_true,y_pred):
     y_true, y_pred = np.array(y_true), np.array(y_pred)
     y_true = y_true.ravel()
     y_pred = y_pred.ravel()
-    phi = np.zeros((y_true.ravel().shape-1))
+    phi = np.zeros((len(y_true)-1))
     for i in range(len(y_true)-1):
         if(((y_pred[i+1]-y_true[i])*(y_true[i+1]-y_true[i]))>0):
             phi[i] = 1

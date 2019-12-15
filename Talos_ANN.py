@@ -6,7 +6,7 @@ from tensorflow.keras.layers import Input, LSTM, GRU, SimpleRNN, Dense, GlobalMa
 from tensorflow.keras.models import Model, Sequential
 from keras.activations import relu, tanh
 import talos as ta
-from talos.utils import live
+#from talos.utils import live
 from functions import *
 from create_raw_data import *
 from talos.utils import lr_normalizer
