@@ -105,7 +105,7 @@ if __name__ == "__main__":
     
 
     windows = [3,5,7,10,15,20]
-    get_best_Talos(windows)
+    #get_best_Talos(windows)
 
     """
     with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
