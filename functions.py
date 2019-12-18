@@ -29,7 +29,7 @@ def PCT(y_true,y_pred):
     y_true, y_pred = np.array(y_true), np.array(y_pred)
     y_true = y_true.ravel()
     y_pred = y_pred.ravel()
-    phi = np.zeros((y_true.ravel().shape-1))
+    phi = np.zeros((len(y_true.ravel())-1))
     for i in range(len(y_true)-1):
         if(((y_pred[i+1]-y_true[i])*(y_true[i+1]-y_true[i]))>0):
             phi[i] = 1
@@ -97,7 +97,7 @@ class prepare_data():
             self.x_test = sc2.transform(self.x_test)
 
 
-            print(self.y_train.shape)
+#            print(self.y_train.shape)
 
             if self.returns == True:
                 self.y_train =self.y_train.reshape(-1,1)
@@ -137,7 +137,6 @@ class prepare_data():
             stock_windows_train = []
             stock_windows_valid = []
             stock_windows_test = []
-            print(data_matrix.shape)
             valid_size = int(np.round(self.valid_percent / 100 * len(data_matrix)))
             test_size = int(np.round(self.test_percent / 100 * len(data_matrix)))
             train_size = len(data_matrix) - (test_size + valid_size)
@@ -198,7 +197,6 @@ class prepare_data():
             stock_windows_valid = []
             stock_windows_test = []
 
-            print(data_matrix.shape)
             valid_size = int(np.round(self.valid_percent / 100 * len(data_matrix)))
             test_size = int(np.round(self.test_percent / 100 * len(data_matrix)))
             train_size = len(data_matrix) - (test_size + valid_size)
