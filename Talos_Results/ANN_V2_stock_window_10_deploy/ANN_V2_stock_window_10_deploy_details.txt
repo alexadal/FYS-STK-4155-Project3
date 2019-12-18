@@ -1,0 +1,10 @@
+experiment_name,ANN_V2_stock_window_10
+random_method,uniform_mersenne
+reduction_method,
+reduction_interval,50
+reduction_window,20
+reduction_threshold,0.2
+reduction_metric,val_acc
+complete_time,12/15/19/13:39
+x_shape,"(1355, 130)"
+y_shape,"(1355, 1)"

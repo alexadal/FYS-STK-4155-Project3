@@ -38,7 +38,6 @@ def create_finance(returns=False,plot_corr=False,Trends=True):
     df = pd.read_excel(filename,)
     df.rename(index=int, columns={"AdjClose": "AdjClose"}, inplace=True)
 
-    print(df.columns)
     #Moving Average:
 
     #Calculate ACD and VPT, PROC and VROC finally OBV
@@ -88,7 +87,7 @@ def create_finance(returns=False,plot_corr=False,Trends=True):
     df['VROC'] = pd.Series(VROC,name='VROC',index=df.index)
     df['OBV'] = pd.Series(OBV,name='OBV',index=df.index)
     df['WR'] = pd.Series(WR,name='WR',index=df.index)
-    print(df.columns)
+
 
     # Missing Rsi as RS is not well defined (need to find out range)
 
@@ -152,6 +151,5 @@ def create_finance(returns=False,plot_corr=False,Trends=True):
 
 
 
-    print(df.columns)
 
     return df
