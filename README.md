@@ -1,5 +1,5 @@
 # FYS-STK-4155-Project3
-This is the repository for Project 3 in the course FYS-STK-4155, Fall 2018 at UiO.
+This is the repository for Project 3 in the course FYS-STK-4155, Fall 2019 at UiO.
 The raw data analysed in the project is stored in the file rawdata_finance.xlsx
 The code is structured in the following way:
 1. To run parameter optimisation using Talos, run:
