@@ -19,7 +19,7 @@ In talos/utils/load_model.py:
 
 
 In Talos/Commands/restore.py
-![Image of first change](https://github.com/alexadal/FYS-STK-4155-Project3/blob/master/2.png)
+![Image of second change](https://github.com/alexadal/FYS-STK-4155-Project3/blob/master/2.png)
 
 
 
