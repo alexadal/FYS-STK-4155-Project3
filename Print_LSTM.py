@@ -35,12 +35,12 @@ for i in windows:
     y_test = data.y_test.reshape(-1, 1)
 
 #    file = 'ANN_WithoutTrends_stock_window_' + str(i)
-    file = 'Talos_Results/LSTM_window_large_b2' + str(i)
+    file = 'Talos_Results/LSTM_window_large_b' + str(i)
 
     print('<><><><><><><><><><><><><><><><><><><><><><><><><>')
     print("Opening Talos on window size: {}".format(i))
     dpl = file + '_deploy.zip'
-
+    print(dpl)
     with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
         LSTM = ta.Restore(dpl);
     #y_pred = ANN.model.predict(x_test)

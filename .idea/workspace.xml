@@ -1,46 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="26bde727-5888-429a-bd5b-799a14174a0e" name="Default Changelist" comment="final ANN Talos Optimizing">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Print_ANN.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TalosANN3.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TalosANN_10.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/oracle.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_0d61fa3a848a05a6a341211c29c90f3e/checkpoints/epoch_0/checkpoint" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_0d61fa3a848a05a6a341211c29c90f3e/checkpoints/epoch_0/checkpoint.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_0d61fa3a848a05a6a341211c29c90f3e/checkpoints/epoch_0/checkpoint.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_0d61fa3a848a05a6a341211c29c90f3e/trial.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_19dba8bcf00564b348ef3eff42ce7fce/checkpoints/epoch_0/checkpoint" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_19dba8bcf00564b348ef3eff42ce7fce/checkpoints/epoch_0/checkpoint.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_19dba8bcf00564b348ef3eff42ce7fce/checkpoints/epoch_0/checkpoint.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_19dba8bcf00564b348ef3eff42ce7fce/trial.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_3d061c721b8689979bc472b92f716acb/checkpoints/epoch_0/checkpoint" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_3d061c721b8689979bc472b92f716acb/checkpoints/epoch_0/checkpoint.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_3d061c721b8689979bc472b92f716acb/checkpoints/epoch_0/checkpoint.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_3d061c721b8689979bc472b92f716acb/trial.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_5c08b7ef8511d1866f40215fb574d5c3/checkpoints/epoch_0/checkpoint" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_5c08b7ef8511d1866f40215fb574d5c3/checkpoints/epoch_0/checkpoint.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_5c08b7ef8511d1866f40215fb574d5c3/checkpoints/epoch_0/checkpoint.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_5c08b7ef8511d1866f40215fb574d5c3/trial.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_a127a495798f0849ef56855cbdbab689/trial.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_e0b2f8318996210e8d9080556d9b26e4/checkpoints/epoch_0/checkpoint" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_e0b2f8318996210e8d9080556d9b26e4/checkpoints/epoch_0/checkpoint.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_e0b2f8318996210e8d9080556d9b26e4/checkpoints/epoch_0/checkpoint.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_e0b2f8318996210e8d9080556d9b26e4/trial.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_dir/proj/tuner0.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_svr.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Talos_LSTM.py" beforeDir="false" afterPath="$PROJECT_DIR$/Talos_LSTM.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_talos.py" beforeDir="false" />
+    <list default="true" id="26bde727-5888-429a-bd5b-799a14174a0e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/FYS-STK-4155-Project3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FYS-STK-4155-Project3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LSTM_window10_deploy.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LSTM_window15_deploy.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LSTM_window20_deploy.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LSTM_window3_deploy.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LSTM_window5_deploy.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LSTM_window7_deploy.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Print_LSTM.py" beforeDir="false" afterPath="$PROJECT_DIR$/Print_LSTM.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +35,7 @@
           <entry key="csv" value="3" />
           <entry key="ipynb" value="1" />
           <entry key="png" value="21" />
-          <entry key="py" value="40" />
+          <entry key="py" value="45" />
           <entry key="ss" value="1" />
         </counts>
       </usages-collector>
@@ -73,20 +44,20 @@
           <entry key="IPNB" value="1" />
           <entry key="Image" value="21" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="40" />
+          <entry key="Python" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="20" />
-          <entry key="py" value="5765" />
+          <entry key="py" value="5873" />
           <entry key="txt" value="63" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="83" />
-          <entry key="Python" value="5765" />
+          <entry key="Python" value="5873" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -122,14 +93,62 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Print_LSTM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+            <state relative-caret-position="630">
+              <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="106" column="69" selection-start-line="106" selection-start-column="69" selection-end-line="106" selection-end-column="69" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/lib/python3.7/site-packages/talos/utils/load_model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/lib/python3.7/site-packages/pandas/io/parsers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27319">
+              <caret line="1916" selection-start-line="1916" selection-end-line="1916" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/lib/python3.7/site-packages/talos/commands/restore.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/create_price_plots.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="97">
+              <caret line="77" selection-start-line="77" selection-end-line="77" />
             </state>
           </provider>
         </entry>
@@ -193,7 +212,6 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/pca_analysis.py" />
         <option value="$PROJECT_DIR$/create_raw_data.py" />
-        <option value="$PROJECT_DIR$/functions.py" />
         <option value="$PROJECT_DIR$/performance_metrics.py" />
         <option value="$PROJECT_DIR$/tuning_svr.py" />
         <option value="$PROJECT_DIR$/ss" />
@@ -203,6 +221,9 @@
         <option value="$PROJECT_DIR$/tests.ipynb" />
         <option value="$PROJECT_DIR$/testing_talos.py" />
         <option value="$PROJECT_DIR$/Print_LSTM.py" />
+        <option value="/usr/local/lib/python3.7/site-packages/talos/commands/restore.py" />
+        <option value="/usr/local/lib/python3.7/site-packages/talos/utils/load_model.py" />
+        <option value="$PROJECT_DIR$/functions.py" />
       </list>
     </option>
   </component>
@@ -253,8 +274,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_svr">
-    <configuration name="Talos_ANN" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.create_price_plots">
+    <configuration name="Print_LSTM" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FYS-STK-4155-Project3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -266,7 +287,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Talos_ANN.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Print_LSTM.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -360,19 +381,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Talos_ANN" />
       <item itemvalue="Python.testing_talos" />
       <item itemvalue="Python.tuning_svr" />
       <item itemvalue="Python.test_svr" />
       <item itemvalue="Python.create_price_plots" />
+      <item itemvalue="Python.Print_LSTM" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_svr" />
         <item itemvalue="Python.create_price_plots" />
+        <item itemvalue="Python.Print_LSTM" />
+        <item itemvalue="Python.test_svr" />
         <item itemvalue="Python.testing_talos" />
         <item itemvalue="Python.tuning_svr" />
-        <item itemvalue="Python.Talos_ANN" />
       </list>
     </recent_temporary>
   </component>
@@ -415,7 +436,21 @@
       <option name="project" value="LOCAL" />
       <updated>1576711697647</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="final ANN Talos Optimizing">
+      <created>1576716786317</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1576716786317</updated>
+    </task>
+    <task id="LOCAL-00006" summary="final ANN Talos Optimizing">
+      <created>1576718464757</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1576718464757</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -429,21 +464,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="738" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49751243" visible="true" weight="0.3121525" />
       <window_info id="Structure" order="1" sideWeight="0.50248754" side_tool="true" weight="0.3121525" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49960285" weight="0.32973805" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7362986" weight="0.37770897" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7355044" visible="true" weight="0.37770897" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32973805" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.65289915" visible="true" weight="0.30959752" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.65289915" weight="0.30959752" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32973805" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.34710088" side_tool="true" visible="true" weight="0.30959752" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.26449564" side_tool="true" visible="true" weight="0.37770897" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.32973805" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -456,7 +490,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added raw data files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added raw data files" />
+    <MESSAGE value="final ANN Talos Optimizing" />
+    <option name="LAST_COMMIT_MESSAGE" value="final ANN Talos Optimizing" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Desktop/Skjermbilde 2019-12-08 kl. 18.16.33.png">
@@ -481,16 +516,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my_dir/ANN_V2_stock_window_20.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create_raw_data.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -526,13 +551,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my_dir/ANN_V2_stock_window_1.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/create_price_plots.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="134" column="69" selection-start-line="134" selection-start-column="69" selection-end-line="134" selection-end-column="69" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pca_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -585,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Talos_LSTM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Talos_ANN.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -609,13 +620,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Talos_LSTM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Print_LSTM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+        <state relative-caret-position="630">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="106" column="69" selection-start-line="106" selection-start-column="69" selection-end-line="106" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.7/site-packages/pandas/io/parsers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27319">
+          <caret line="1916" selection-start-line="1916" selection-end-line="1916" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.7/site-packages/talos/utils/load_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.7/site-packages/talos/commands/restore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_price_plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
         </state>
       </provider>
     </entry>
