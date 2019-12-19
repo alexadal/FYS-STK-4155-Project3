@@ -108,6 +108,7 @@ class prepare_data():
                 self.y_valid = sc.transform(self.y_valid.reshape(-1,1))
                 self.y_test = sc.transform(self.y_test.reshape(-1,1))
                 self.mm = [sc.data_min_, sc.data_max_]
+                self.inv = sc
 
 
 
