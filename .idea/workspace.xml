@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="26bde727-5888-429a-bd5b-799a14174a0e" name="Default Changelist" comment="final ANN Talos Optimizing">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Print_ANN.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TalosANN3.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TalosANN_10.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/ANN_V2_stock_window_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/oracle.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_0d61fa3a848a05a6a341211c29c90f3e/checkpoints/epoch_0/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_0d61fa3a848a05a6a341211c29c90f3e/checkpoints/epoch_0/checkpoint.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_0d61fa3a848a05a6a341211c29c90f3e/checkpoints/epoch_0/checkpoint.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_0d61fa3a848a05a6a341211c29c90f3e/trial.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_19dba8bcf00564b348ef3eff42ce7fce/checkpoints/epoch_0/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_19dba8bcf00564b348ef3eff42ce7fce/checkpoints/epoch_0/checkpoint.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_19dba8bcf00564b348ef3eff42ce7fce/checkpoints/epoch_0/checkpoint.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_19dba8bcf00564b348ef3eff42ce7fce/trial.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_3d061c721b8689979bc472b92f716acb/checkpoints/epoch_0/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_3d061c721b8689979bc472b92f716acb/checkpoints/epoch_0/checkpoint.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_3d061c721b8689979bc472b92f716acb/checkpoints/epoch_0/checkpoint.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_3d061c721b8689979bc472b92f716acb/trial.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_5c08b7ef8511d1866f40215fb574d5c3/checkpoints/epoch_0/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_5c08b7ef8511d1866f40215fb574d5c3/checkpoints/epoch_0/checkpoint.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_5c08b7ef8511d1866f40215fb574d5c3/checkpoints/epoch_0/checkpoint.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_5c08b7ef8511d1866f40215fb574d5c3/trial.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_a127a495798f0849ef56855cbdbab689/trial.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_e0b2f8318996210e8d9080556d9b26e4/checkpoints/epoch_0/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_e0b2f8318996210e8d9080556d9b26e4/checkpoints/epoch_0/checkpoint.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_e0b2f8318996210e8d9080556d9b26e4/checkpoints/epoch_0/checkpoint.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/trial_e0b2f8318996210e8d9080556d9b26e4/trial.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_dir/proj/tuner0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_svr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Talos_LSTM.py" beforeDir="false" afterPath="$PROJECT_DIR$/Talos_LSTM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing_talos.py" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-354103277">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="csv" value="3" />
+          <entry key="ipynb" value="1" />
+          <entry key="png" value="21" />
+          <entry key="py" value="40" />
+          <entry key="ss" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="IPNB" value="1" />
+          <entry key="Image" value="21" />
+          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="Python" value="40" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="20" />
+          <entry key="py" value="5765" />
+          <entry key="txt" value="63" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="83" />
+          <entry key="Python" value="5765" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.compare" value="2" />
+          <entry key="git.branch.create.new" value="1" />
+          <entry key="git.branch.merge" value="2" />
+          <entry key="git.branch.rebase" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Talos_ANN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
+              <folding>
+                <element signature="e#63#75#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Print_ANN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Print_LSTM.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1995">
+              <caret line="133" column="14" selection-start-line="133" selection-start-column="14" selection-end-line="133" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Talos_LSTM.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Jupyter Notebook" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Model</find>
+      <find>test</find>
+      <find>x_valid</find>
+      <find>x_test</find>
+      <find>valid</find>
+      <find>mean_</find>
+      <find>normalize_win</find>
+      <find>pca</find>
+      <find>WR</find>
+      <find>print</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/pca_analysis.py" />
+        <option value="$PROJECT_DIR$/create_raw_data.py" />
+        <option value="$PROJECT_DIR$/functions.py" />
+        <option value="$PROJECT_DIR$/performance_metrics.py" />
+        <option value="$PROJECT_DIR$/tuning_svr.py" />
+        <option value="$PROJECT_DIR$/ss" />
+        <option value="$PROJECT_DIR$/Talos_ANN.py" />
+        <option value="$PROJECT_DIR$/create_price_plots.py" />
+        <option value="$PROJECT_DIR$/test_svr.py" />
+        <option value="$PROJECT_DIR$/tests.ipynb" />
+        <option value="$PROJECT_DIR$/testing_talos.py" />
+        <option value="$PROJECT_DIR$/Print_LSTM.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="738" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="FYS-STK-4155-Project3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FYS-STK-4155-Project3" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Talos_Results" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.test_svr">
+    <configuration name="Talos_ANN" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FYS-STK-4155-Project3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Talos_ANN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="create_price_plots" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FYS-STK-4155-Project3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/create_price_plots.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_svr" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FYS-STK-4155-Project3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_svr.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="testing_talos" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FYS-STK-4155-Project3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Print_ANN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tuning_svr" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FYS-STK-4155-Project3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tuning_svr.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.Talos_ANN" />
+      <item itemvalue="Python.testing_talos" />
+      <item itemvalue="Python.tuning_svr" />
+      <item itemvalue="Python.test_svr" />
+      <item itemvalue="Python.create_price_plots" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test_svr" />
+        <item itemvalue="Python.create_price_plots" />
+        <item itemvalue="Python.testing_talos" />
+        <item itemvalue="Python.tuning_svr" />
+        <item itemvalue="Python.Talos_ANN" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="26bde727-5888-429a-bd5b-799a14174a0e" name="Default Changelist" comment="" />
+      <created>1575723207517</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575723207517</updated>
+    </task>
+    <task id="LOCAL-00001" summary="added raw data files">
+      <created>1575723371740</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575723371740</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added raw data files">
+      <created>1576275802944</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1576275802944</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added raw data files">
+      <created>1576711170395</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1576711170396</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added raw data files">
+      <created>1576711697647</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1576711697647</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1280" height="738" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49751243" visible="true" weight="0.3121525" />
+      <window_info id="Structure" order="1" sideWeight="0.50248754" side_tool="true" weight="0.3121525" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49960285" weight="0.32973805" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7362986" weight="0.37770897" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32973805" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.65289915" visible="true" weight="0.30959752" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32973805" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.34710088" side_tool="true" visible="true" weight="0.30959752" />
+      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Python Console" order="11" weight="0.32973805" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added raw data files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added raw data files" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/Desktop/Skjermbilde 2019-12-08 kl. 18.16.33.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Project2/env/lib/python3.7/site-packages/kerastuner/engine/oracle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="381" selection-start-line="381" selection-end-line="381" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ANN Stock/121319210837.csv" />
+    <entry file="file://$PROJECT_DIR$/ANN Stock/121419105206.csv" />
+    <entry file="file://$PROJECT_DIR$/DD.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Talos_Results/ANN_stock_window_20/121519061307.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_dir/ANN_V2_stock_window_20.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_raw_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="67" column="17" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_dir/ANN_V2_stock_window_5.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_dir/ANN_V2_stock_window_7.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_dir/ANN_V2_stock_window_10.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_dir/ANN_V2_stock_window_15.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_dir/ANN_V2_stock_window_3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/performance_metrics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_dir/ANN_V2_stock_window_1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_price_plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="134" column="69" selection-start-line="134" selection-start-column="69" selection-end-line="134" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pca_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tuning_svr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_svr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="55" column="16" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1995">
+          <caret line="133" column="14" selection-start-line="133" selection-start-column="14" selection-end-line="133" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Talos_LSTM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Talos_ANN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+          <folding>
+            <element signature="e#63#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Print_ANN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Print_LSTM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
